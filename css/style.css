@@ -349,35 +349,35 @@ section {
 }
 
 .card-web {
-  background: url('./assets/application-security.png') center center / cover no-repeat;
+  background: url('../assets/application-security.png') center center / cover no-repeat;
 }
 
 .card-mobile {
-  background: url('./assets/mobile-security.png') center center / cover no-repeat;
+  background: url('../assets/mobile-security.png') center center / cover no-repeat;
 }
 
 .card-network {
-  background: url('./assets/infra-security.png') center center / cover no-repeat;
+  background: url('../assets/infra-security.png') center center / cover no-repeat;
 }
 
 .card-cloud {
-  background: url('./assets/cloud-security.png') center center / cover no-repeat;
+  background: url('../assets/cloud-security.png') center center / cover no-repeat;
 }
 
 .card-threat {
-  background: url('./assets/threat-modelling.png') center center / cover no-repeat;
+  background: url('../assets/threat-modelling.png') center center / cover no-repeat;
 }
 
 .card-soc {
-  background: url('./assets/soc.png') center center / cover no-repeat;
+  background: url('../assets/soc.png') center center / cover no-repeat;
 }
 
 .card-red-team {
-  background: url('./assets/red-team.jpeg') center center / cover no-repeat;
+  background: url('../assets/red-team.jpeg') center center / cover no-repeat;
 }
 
 .card-iso-27k {
-  background: url('./assets/gap-assess.png') center center / cover no-repeat;
+  background: url('../assets/gap-assess.png') center center / cover no-repeat;
 }
 
 /* Hide scroll on body when modal is open */
