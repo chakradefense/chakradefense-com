@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Chakra Defense – Your all-round security companion</title>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <nav class="navbar">
-    <img src="./assets/logo.png" alt="Chakra Defense Logo" class="site-logo" />
+    <a href="./index.html">
+        <img src="./assets/logo.png" alt="Chakra Defense Logo" class="site-logo" />
+    </a>
     <div class="nav-title hidden">Chakra Defense</div>
     <div class="nav-links">
       <a href="#services" class="hero-btn">Services</a>
@@ -19,7 +21,7 @@
     </div>
   </nav>
 
-  <section class="hero">
+  <section id="home" class="hero">
       <div class="hero-row">
         <img src="./assets/logo.png" alt="Chakra Defense Logo" class="logo-image" />
         <h1 class="hero-title">Chakra Defense</h1>
@@ -36,70 +38,122 @@
   <section id="services" class="services-section">
     <h2>Our Services</h2>
     <div class="services" style="--numcards: 6;">
-      <div class="card card-web" style="--index:0;">
-        <h3>Web & API Security Assessment</h3>
-        <p>Comprehensive testing of modern web applications.</p>
-        <a href="#web-app-security" class="read-more-icon">
+        <div class="card card-web" style="--index:0;">
+            <h3>Web & API Security Assessment</h3>
+            <p>Comprehensive testing of modern web applications.</p>
+            <a href="#web-app-security" class="read-more-icon">
             <img src="./assets/arrow-right-circle.svg" alt="Read More">
-        </a>
-      </div>
+            </a>
+        </div>
         <div class="card card-mobile" style="--index:1;">
-        <h3>Mobile Application Security Assessment</h3>
-        <p>Secure your Android &amp; iOS apps.</p>
-        <a href="#mobile-security" class="read-more-icon">
+            <h3>Mobile Application Security Assessment</h3>
+            <p>Secure your Android &amp; iOS apps.</p>
+            <a href="#mobile-security" class="read-more-icon">
             <img src="./assets/arrow-right-circle.svg" alt="Read More">
-        </a>
+            </a>
         </div>
         <div class="card card-network" style="--index:2;">
-        <h3>Network & Infrastructure Security</h3>
-        <p>Boost your infrastructure & Network defenses with us.</p>
-        <a href="#network-pt" class="read-more-icon">
+            <h3>Network & Infrastructure Security</h3>
+            <p>Boost your infrastructure & Network defenses with us.</p>
+            <a href="#network-pt" class="read-more-icon">
             <img src="./assets/arrow-right-circle.svg" alt="Read More"></a>
         </div>
         <div class="card card-cloud" style="--index:3;">
-        <h3>Cloud Security</h3>
-        <p>Secure your cloud infrastructure and data.</p>
-        <a href="#cloud-security" class="read-more-icon">
+            <h3>Cloud Security</h3>
+            <p>Secure your cloud infrastructure and data.</p>
+            <a href="#cloud-security" class="read-more-icon">
             <img src="./assets/arrow-right-circle.svg" alt="Read More"></a>
         </div>
         <div class="card card-threat" style="--index:4;">
-        <h3>Threat Modeling</h3>
-        <p>Identify and assess potential security threats to your systems.</p>
-        <a href="#threat-modeling" class="read-more-icon">
+            <h3>Threat Modeling</h3>
+            <p>Identify and assess potential security threats to your systems.</p>
+            <a href="#threat-modeling" class="read-more-icon">
             <img src="./assets/arrow-right-circle.svg" alt="Read More"></a>
         </div>
         <div class="card card-soc" style="--index:5;">
-        <h3>Managed Security Services</h3>
-        <p>24/7 expert security monitoring and threat response for your digital infrastructure.</p>
-        <a href="#soc-service" class="read-more-icon">
+            <h3>Managed Security Services</h3>
+            <p>24/7 expert security monitoring and threat response for your digital infrastructure.</p>
+            <a href="#soc-service" class="read-more-icon">
             <img src="./assets/arrow-right-circle.svg" alt="Read More"></a>
         </div>
         <div class="card card-red-team" style="--index:6;">
-        <h3>Red Teaming</h3>
-        <p>Simulate real-world attacks. Test detection and response.
-        <a href="#red-team" class="read-more-icon">
+            <h3>Red Teaming</h3>
+            <p>Simulate real-world attacks. Test detection & response.
+            <a href="#red-team" class="read-more-icon"></p>
+            <img src="./assets/arrow-right-circle.svg" alt="Read More"></a>
+            </p>
+        </div>
+        <div class="card card-iso-27k" style="--index:7;">
+            <h3>Gap Assessment for ISO 27001:2022</h3>
+            <p>Ensure ISO readiness with detailed gap analysis.</p>
+            <a href="#gap-assessment" class="read-more-icon">
             <img src="./assets/arrow-right-circle.svg" alt="Read More"></a>
 
-</p>
-        
         </div>
-    </div>
   </section>
 
   <section id="about" class="about-section">
     <h2>About Us</h2>
-    <p>Chakra Defense is a leading cybersecurity firm specializing in comprehensive security solutions for businesses of all sizes.</p>
+    <p>Chakra Defense is a leading cybersecurity consultancy based in India, delivering end-to-end cybersecurity solutions to businesses worldwide. Our services are tailored to meet the evolving needs of startups, SMBs, and enterprises, including web application security, mobile app penetration testing, cloud and network security assessments, red teaming, threat modeling, ISO 27001:2022 gap analysis, and vCISO (Virtual CISO) advisory.</p><p> At Chakra Defense, we believe cybersecurity goes beyond defense — it’s about building resilience, enabling intelligent risk management, and driving continuous security improvement across your digital ecosystem.</p>
+        
+    <p>We are a team of certified cybersecurity professionals with over a decade of experience in penetration testing, red teaming, application security, and security operations. We specialize in proactive threat detection, enterprise risk mitigation, and strategic security advisory. By combining deep manual expertise with advanced automated tools, we deliver comprehensive security assessments and monitoring across your digital landscape. Our mission is to help businesses of all sizes protect critical assets and meet regulatory requirements. Our team is backed by industry-recognized certifications from Offensive Security, SANS, and ISC2.</p>
+    
+    <p>From securing web and mobile apps to red team simulations and ISO/NIST-aligned roadmaps, Chakra Defense delivers precise, tailored cybersecurity solutions. Whether you're a startup or an enterprise, we ensure you feel secure, compliant, and internet-safe.</p>
+    
+    <p>Backed by industry-leading tools, methodologies, and a deep understanding of attacker behavior, Chakra Defense is your all-round security companion - always on, always ahead.</p>
   </section>
   
-  <section id="contact" class="contact-section">
-    <h2>Contact Us</h2>
-    <p><i class="fas fa-at"></i> <a href="mailto:contact@chakradefense.com">contact@chakradefense.com</a></p>
+ <footer class="site-footer">
+  <div class="footer-container">
+    <!-- Column 1: Logo & Copyright -->
+    <div class="footer-col footer-branding">
+      <img src="./assets/logo.png" alt="Chakra Defense Logo" class="footer-logo" />
+      <p>&copy; 2025 Chakra Defense. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
 
-  </section>
-  <footer class="site-footer">
-  &copy; 2025 Chakra Defense. All rights reserved.
+    <!-- Column 2: Services -->
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="#web-app-security">Web App Security</a></li>
+        <li><a href="#mobile-security">Mobile App Security</a></li>
+        <li><a href="#network-pt">Network Security</a></li>
+        <li><a href="#cloud-security">Cloud Security</a></li>
+        <li><a href="#threat-modeling">Threat Modeling</a></li>
+        <li><a href="#soc-service">Managed SOC</a></li>
+        <li><a href="#red-team">Red Teaming</a></li>
+        <li><a href="#gap-assessment">ISO 27001 Gap Assessment</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Legal -->
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Disclaimer</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="mailto:contact@chakradefense.com" target="_blank">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
-  <script src="main.js"></script>
-  
+
+  <script src="./main.js"></script>
 </body>
 </html>

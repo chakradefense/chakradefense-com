@@ -1,0 +1,13 @@
+window.addEventListener("scroll", function () {
+  const navTitle = document.querySelector(".nav-title");
+  const subtitle = document.getElementById("subtitle");
+  const subtitleBottom = subtitle.getBoundingClientRect().bottom;
+
+  if (subtitleBottom < 0) {
+    navTitle.classList.remove("hidden");
+    navTitle.classList.add("visible");
+  } else {
+    navTitle.classList.remove("visible");
+    navTitle.classList.add("hidden");
+  }
+});
