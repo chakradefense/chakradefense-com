@@ -1,26 +1,48 @@
-  window.addEventListener("DOMContentLoaded", function () {
-    const navTitle = document.querySelector(".nav-title");
-    const heroTitle = document.querySelector(".hero-title");
+window.addEventListener("DOMContentLoaded", function () {
+  const navTitle = document.querySelector(".nav-title");
+  const heroTitle = document.querySelector(".hero-title");
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) {
-          navTitle.classList.add("visible");
-        } else {
-          navTitle.classList.remove("visible");
-        }
-      },
-      {
-        threshold: 0.1
+  // Navbar title visibility based on scroll
+  const heroObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) {
+        navTitle.classList.add("visible");
+      } else {
+        navTitle.classList.remove("visible");
       }
-    );
-
-    if (heroTitle) {
-      observer.observe(heroTitle);
+    },
+    {
+      threshold: 0.1
     }
-  });
+  );
 
-  function smoothScrollTo(targetY, duration = 500) {
+  if (heroTitle) {
+    heroObserver.observe(heroTitle);
+  }
+
+  // Fade-in cards when in viewport
+  const cardObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
+        }
+      });
+    },
+    {
+      threshold: 0.1
+    }
+  );
+
+  document.querySelectorAll(".card").forEach((card) => {
+    cardObserver.observe(card);
+  });
+});
+
+// Smooth scroll function (used by back-to-top if needed)
+function smoothScrollTo(targetY, duration = 500) {
   const startY = window.scrollY;
   const diff = targetY - startY;
   let startTime = null;
@@ -47,6 +69,7 @@
   requestAnimationFrame(step);
 }
 
+// Back to top button logic
 const backToTopBtn = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {
