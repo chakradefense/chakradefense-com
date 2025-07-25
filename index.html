@@ -12,19 +12,18 @@
 <body>
   <div class="header finisher-header"></div>
   <nav class="navbar">
+  <div class="nav-left">
     <a href="./index.html">
-        <img src="./assets/logo.png" alt="Chakra Defense Logo" class="site-logo" />
+      <img src="./assets/logo.png" alt="Chakra Defense Logo" class="site-logo" />
     </a>
-    <div class="nav-title-wrapper">
-      <div class="nav-title">Chakra Defense</div>
-    </div>
-    <div class="nav-links">
-      <a href="#services" class="hero-btn">Services</a>
-        <a href="#about" class="hero-btn">About</a>
-      <a href="#contact" class="hero-btn">Contact</a>
-    </div>
-  </nav>
-
+    <div class="nav-title">Chakra Defense</div>
+  </div>
+  <div class="nav-links">
+    <a href="#services" class="hero-btn">Services</a>
+    <a href="#about" class="hero-btn">About</a>
+    <a href="#contact" class="hero-btn">Contact</a>
+  </div>
+</nav>
   <section id="home" class="hero">
       <div class="hero-row">
         <img src="./assets/logo.png" alt="Chakra Defense Logo" class="logo-image" />
@@ -160,7 +159,7 @@
   </div>
 </footer>
 <button id="backToTop" class="back-to-top" aria-label="Back to Top">↑</button>
-  <script src="./main.js"></script>
+  <script src="./main.js" defer></script>
   <script src="./assets/finisher-header.es5.min.js"></script>
   <script>
   new FinisherHeader({

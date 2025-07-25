@@ -26,6 +26,7 @@ body {
 
 /* Navbar styling */
 .navbar {
+  min-width: 320px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -39,6 +40,13 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: background-color 0.3s ease;
+  }
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Adjust spacing between logo and title */
+  white-space: nowrap;
 }
 
 .nav-title {
@@ -46,10 +54,10 @@ body {
   transform: translateY(10px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #fff;
   pointer-events: none;
-  
+  white-space: nowrap;
 }
 
 .nav-title.visible {
@@ -68,7 +76,9 @@ body {
 
 .nav-links {
   display: flex;
+  flex-wrap: nowrap;
   gap: 1rem;
+  min-width: 200px;
 }
 
 nav a {
@@ -403,10 +413,13 @@ body.modal-open {
 
 /* Site logo styling */
 .site-logo {
-  height: 60px;
+  height: 3rem;
+  max-height: 64px;
   margin-right: 16px;
   vertical-align: middle;
   border-radius: 9px;
+  width: auto;
+  flex-shrink: 0;
   background: transparent;
 }
 @media (max-width: 600px) {
@@ -577,7 +590,11 @@ a:has(.site-logo):hover,
   max-width: 1400px;    /* match your section container width */
   width: 100%;
   margin: 0 auto;
-  padding-left: 1rem;   /* match section heading padding if any */
+  flex-shrink: 0;
+  padding-left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;   /* match section heading padding if any */
 }
 
 .nav-title {
@@ -592,21 +609,23 @@ a:has(.site-logo):hover,
 
 .back-to-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 45px;
-  height: 45px;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3rem; height: 3rem;
+  display: flex;
+  align-items: center;
   border: none;
   border-radius: 50%;
   background: linear-gradient(135deg, #36c8c3, #c94bec);
+  justify-content: center;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   cursor: pointer;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transform: translateY(20px); /* hidden below */
   pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.3s, transform 0.3s;
   z-index: 999;
 }
 

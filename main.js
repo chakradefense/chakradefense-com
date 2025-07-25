@@ -1,8 +1,9 @@
+// main.js
 window.addEventListener("DOMContentLoaded", function () {
-  const navTitle = document.querySelector(".nav-title");
+  // — NAVBAR TITLE FADE-IN/OUT —
+  const navTitle  = document.querySelector(".nav-title");
   const heroTitle = document.querySelector(".hero-title");
 
-  // Navbar title visibility based on scroll
   const heroObserver = new IntersectionObserver(
     ([entry]) => {
       if (!entry.isIntersecting) {
@@ -11,37 +12,39 @@ window.addEventListener("DOMContentLoaded", function () {
         navTitle.classList.remove("visible");
       }
     },
-    {
-      threshold: 0.1
-    }
+    { threshold: 0.1 }
   );
+  if (heroTitle) heroObserver.observe(heroTitle);
 
-  if (heroTitle) {
-    heroObserver.observe(heroTitle);
-  }
-
-  // Fade-in cards when in viewport
+  // — CARD FADE-IN ON SCROLL —
   const cardObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        } else {
-          entry.target.classList.remove("visible");
-        }
+        entry.target.classList.toggle("visible", entry.isIntersecting);
       });
     },
-    {
-      threshold: 0.1
-    }
+    { threshold: 0.1 }
   );
-
   document.querySelectorAll(".card").forEach((card) => {
     cardObserver.observe(card);
   });
+
+  // — BACK‑TO‑TOP BUTTON —
+  const backToTop = document.getElementById("backToTop");
+  if (backToTop) {
+    // show / hide
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("show", window.scrollY > 300);
+    });
+
+    // smooth scroll on click
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 });
 
-// Smooth scroll function (used by back-to-top if needed)
+// (Optional) If you ever need a custom easing, you can still use this helper:
 function smoothScrollTo(targetY, duration = 500) {
   const startY = window.scrollY;
   const diff = targetY - startY;
@@ -55,9 +58,9 @@ function smoothScrollTo(targetY, duration = 500) {
 
   function step(timestamp) {
     if (!startTime) startTime = timestamp;
-    const time = timestamp - startTime;
+    const time    = timestamp - startTime;
     const percent = Math.min(time / duration, 1);
-    const eased = easeInOutQuad(percent);
+    const eased   = easeInOutQuad(percent);
 
     window.scrollTo(0, startY + diff * eased);
 
@@ -65,24 +68,5 @@ function smoothScrollTo(targetY, duration = 500) {
       requestAnimationFrame(step);
     }
   }
-
   requestAnimationFrame(step);
 }
-
-// Back to top button logic
-const backToTopBtn = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    backToTopBtn.classList.add("show");
-  } else {
-    backToTopBtn.classList.remove("show");
-  }
-});
-
-backToTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
