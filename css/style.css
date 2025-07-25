@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Ubuntu Mono', monospace;
   background: #000000;
   color: #fff;
   position: relative;
@@ -173,10 +173,15 @@ section {
 
 /* Services grid */
 .services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 100%;
+  height: 350px;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 1rem;
 }
 
 /* Animated stacking scroll effect for cards */
@@ -206,28 +211,28 @@ section {
 }
 
 .card {
-  position: relative;
-  top: initial;
-  left: initial;
+  flex: 1;
+  min-width: 80px;
+  max-width: 100%;
+  height: 100%;
   background: #1a1a1a;
-  padding: 2rem;
-  border-radius: 12px;        /* Slightly rounded corners, NOT pill */
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  transition: flex 0.5s ease;
   overflow: hidden;
-  color: #fff;
+  padding: 1.5rem;
   cursor: pointer;
-  z-index: 1;
   border: 1px solid transparent;
-  transition: transform 0.3s ease, box-shadow 0.2s ease, width 0.5s ease, height 0.5s ease, top 0.5s ease, left 0.5s ease;
-  opacity: 0;
-  animation: stack-up 0.6s cubic-bezier(0.4, 0.2, 0.2, 1) both;
-  animation-delay: calc(var(--index) * 0.12s);
-  width: auto;
-  height: auto;
-  /* Scroll-driven animation properties */
-  view-timeline-name: --card-timeline;
-  view-timeline-axis: block;
-  animation-timeline: --card-timeline;
-  animation-range: entry 0% cover 40%;
+  box-shadow: none;
+  scroll-snap-align: start;
+}
+
+.card:hover {
+  flex: 4;
 }
 
 /* Rectangular gradient border using a pseudo-element */
@@ -235,28 +240,32 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: inherit;     /* Ensures corners match (but not pill shaped) */
+  border-radius: inherit;
   pointer-events: none;
-  background: none;
-  z-index: -1;
-  opacity: 0;
-  border: 1px solid transparent;
-  transition: opacity 0.3s, box-shadow 0.2s;
-}
-
-.card:hover::before,
-.card:focus::before {
-  opacity: 1;
-  border: 3px solid transparent;
   background:
     linear-gradient(#1a1a1a, #1a1a1a) padding-box,
     linear-gradient(90deg, #36c8c3, #c94bec) border-box;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border: 2px solid transparent;
+  z-index: -1;
 }
 
-.card:hover,
-.card:focus {
-  box-shadow: 0 0 8px 2px #36c8c380, 0 0 12px 4px #c94bec55;
-  transform: translateY(-2px) scale(1.01);
+.card:hover::before {
+  opacity: 1;
+}
+
+.card h3, .card p, .card a {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.card:hover h3,
+.card:hover p,
+.card:hover a {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card h3 {
@@ -337,6 +346,34 @@ section {
 
 .card.expanded a {
   display: none;
+}
+
+.card-web {
+  background: url('./assets/application-security.png') center center / cover no-repeat;
+}
+
+.card-mobile {
+  background: url('./assets/mobile-security.png') center center / cover no-repeat;
+}
+
+.card-network {
+  background: url('./assets/infra-security.png') center center / cover no-repeat;
+}
+
+.card-cloud {
+  background: url('./assets/cloud-security.png') center center / cover no-repeat;
+}
+
+.card-threat {
+  background: url('./assets/threat-modelling.png') center center / cover no-repeat;
+}
+
+.card-soc {
+  background: url('./assets/soc.png') center center / cover no-repeat;
+}
+
+.card-red-team {
+  background: url('./assets/red-team.jpeg') center center / cover no-repeat;
 }
 
 /* Hide scroll on body when modal is open */
@@ -503,3 +540,29 @@ section, .hero {
   scroll-snap-align: start;
 }
 
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay, adjust opacity as needed */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ensure card content appears above the overlay */
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.read-more-icon img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(1.2) invert(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.read-more-icon:hover img {
+  transform: scale(1.2);
+  filter: brightness(1.6) invert(0.8);
+}
